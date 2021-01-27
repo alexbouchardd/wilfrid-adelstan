@@ -34,7 +34,7 @@ const Nagivation = ({ logo, links, alt_locale }) => {
         }
 
         .container {
-          max-width: 1440px;
+          max-width: 1220px;
           margin: 0 auto;
           display: flex;
           align-items: center;
