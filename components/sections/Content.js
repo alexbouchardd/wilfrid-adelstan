@@ -5,6 +5,7 @@ import theme from "../theme";
 import Link from "../Link";
 
 const Content = ({ fields }) => {
+  console.log(fields.image);
   return (
     <section id={fields.slug}>
       <div className="content">
@@ -28,7 +29,11 @@ const Content = ({ fields }) => {
       {fields.image && (
         <div className="image">
           <Image
-            objectFit="cover"
+            objectFit={
+              fields.image.fields.file.contentType !== "image/svg+xml"
+                ? "cover"
+                : "contain"
+            }
             src={`https:${fields.image.fields.file.url}`}
             alt={fields.image.fields.title}
             layout="fill"
@@ -61,9 +66,13 @@ const Content = ({ fields }) => {
         .image {
           position: relative;
           width: 100%;
-          border: 1px solid ${theme.colors.primary};
-          box-sizing: border-box;
-          box-shadow: 0px 0px 0px 20px ${theme.colors.light_primary};
+          ${fields.image.fields.file.contentType !== "image/svg+xml"
+            ? `
+            border: 1px solid ${theme.colors.primary};
+            box-sizing: border-box;
+            box-shadow: 0px 0px 0px 20px ${theme.colors.light_primary};
+          `
+            : ""}
         }
       `}</style>
     </section>

@@ -36,6 +36,10 @@ export default function Home({ home, navigation, locales, locale }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <main>
@@ -75,13 +79,25 @@ export default function Home({ home, navigation, locales, locale }) {
         .h1 {
           font-size: ${getPixelToRem(60)};
           font-weight: bold;
-          line-height: 1.25;
+          line-height: 1.2;
+          font-family: Cormorant, Larseeit, -apple-system, BlinkMacSystemFont,
+            serif;
         }
 
         h2,
         .h2 {
           font-size: ${getPixelToRem(44)};
           font-weight: bold;
+          line-height: 1.2;
+          font-family: Cormorant, Larseeit, -apple-system, BlinkMacSystemFont,
+            serif;
+        }
+
+        h3,
+        .h3 {
+          line-height: 1.2;
+          font-family: Cormorant, Larseeit, -apple-system, BlinkMacSystemFont,
+            serif;
         }
 
         h1,
@@ -98,6 +114,11 @@ export default function Home({ home, navigation, locales, locale }) {
         li {
           position: relative;
           list-style-type: none;
+        }
+
+        strong,
+        b {
+          color: ${theme.colors.primary};
         }
 
         hr {
