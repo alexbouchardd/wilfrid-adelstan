@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import theme from "../theme";
+import theme, { getSpacing } from "../theme";
 import Link from "../Link";
 
 const Content = ({ fields }) => {
@@ -46,6 +46,11 @@ const Content = ({ fields }) => {
             display: grid;
             grid-template-columns: 1fr 1fr;
             column-gap: 100px;
+          `
+            : ""}
+          ${fields.smallTopPadding
+            ? `
+            padding-top: ${getSpacing(10)};
           `
             : ""}
         }
