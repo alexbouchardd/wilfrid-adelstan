@@ -141,6 +141,30 @@ export default function Home({ home, navigation, locales, locale }) {
           font-size: ${getPixelToRem(24)};
         }
       `}</style>
+      <style jsx global>{`
+        @media only screen and (max-width: 600px) {
+          h1,
+          .h1 {
+            font-size: ${getPixelToRem(40)};
+          }
+
+          h2,
+          .h2 {
+            font-size: ${getPixelToRem(32)};
+          }
+
+          section {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: ${getSpacing(12)} ${getSpacing(4)};
+          }
+        }
+        @media only screen and (max-width: 900px) {
+          section {
+            padding: ${getSpacing(24)} ${getSpacing(8)};
+          }
+        }
+      `}</style>
     </div>
   );
 }

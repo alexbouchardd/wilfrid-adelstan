@@ -9,9 +9,9 @@ const Nagivation = ({ logo, links, alt_locale }) => {
         <div className="logo">
           <img height="28x" src={logo.fields.file.url} />
         </div>
-        <div>
+        <div className="links">
           {links.map((link) => (
-            <Link href={getLinkEntryHref(link)}>
+            <Link key={link.sys.id} href={getLinkEntryHref(link)}>
               <a>{link.fields.label}</a>
             </Link>
           ))}
@@ -61,6 +61,19 @@ const Nagivation = ({ logo, links, alt_locale }) => {
         .locale {
           padding-left: ${getSpacing(6)};
           border-left: ${theme.border};
+        }
+      `}</style>
+      <style jsx>{`
+        @media only screen and (max-width: 900px) {
+          nav {
+            padding: ${getSpacing(4)};
+          }
+          img {
+            width: 70%;
+          }
+          .links {
+            display: none;
+          }
         }
       `}</style>
     </nav>

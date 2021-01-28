@@ -10,13 +10,23 @@ const Camper = ({ fields }) => {
       <div>
         <h2>{fields.title}</h2>
         {fields.highlights.map((highlight) => (
-          <p className="h2">{highlight}</p>
+          <p key={highlight} className="h2">{highlight}</p>
         ))}
         <br />
         {fields.links?.map((link) => {
           return <AppLink key={link.sys.id} link={link} />;
         })}
       </div>
+      {fields.illustration && (
+        <div className="image">
+          <Image
+            objectFit="fit"
+            src={`https:${fields.illustration.fields.file.url}`}
+            alt=""
+            layout="fill"
+          />
+        </div>
+      )}
       <div className="content">
         {documentToReactComponents(fields.text, {
           renderNode: {
@@ -32,16 +42,7 @@ const Camper = ({ fields }) => {
           },
         })}
       </div>
-      {fields.illustration && (
-        <div className="image">
-          <Image
-            objectFit="fit"
-            src={`https:${fields.illustration.fields.file.url}`}
-            alt=""
-            layout="fill"
-          />
-        </div>
-      )}
+
       <style jsx>{`
         section {
           position: relative;
@@ -70,14 +71,32 @@ const Camper = ({ fields }) => {
 
         .image {
           position: absolute;
-          max-height: 80%;
-          top: 10%;
-          bottom: 10%;
-          left: -10%;
-          right: 20%;
+          top: 24px;
+          bottom: 24px;
+          left: 0;
+          right: 25%;
           z-index: -2;
           object-fit: contain;
           opacity: 0.2;
+        }
+      `}</style>
+      <style jsx>{`
+        @media only screen and (max-width: 900px) {
+          section {
+            display: block;
+          }
+          .content {
+            margin-top: ${getSpacing(12)} !important;
+            max-width: 100%;
+          }
+          .image {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            z-index: 0;
+            object-fit: contain;
+            opacity: 1;
+          }
         }
       `}</style>
     </section>

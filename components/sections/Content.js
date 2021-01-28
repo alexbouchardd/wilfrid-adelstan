@@ -79,6 +79,25 @@ const Content = ({ fields }) => {
             : ""}
         }
       `}</style>
+      <style jsx>{`
+        @media only screen and (max-width: 900px) {
+          section {
+            display: block;
+          }
+
+          .image {
+            width: 100%;
+            height: 500px;
+            margin-top: ${getSpacing(12)};
+            ${fields.image.fields.file.contentType === "image/svg+xml"
+              ? `
+              max-width: 100px;
+              height: 100px;
+          `
+              : ""}
+          }
+        }
+      `}</style>
     </section>
   );
 };

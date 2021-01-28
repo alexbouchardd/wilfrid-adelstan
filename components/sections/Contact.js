@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AppLink from "../Link";
 import { getSpacing } from "../theme";
 
 const Contact = ({ fields }) => {
@@ -9,7 +10,7 @@ const Contact = ({ fields }) => {
         <br />
         <div className="grid">
           {fields.person.map((person) => (
-            <div id={person.sys.id}>
+            <div key={person.sys.id}>
               <div className="image">
                 <Image
                   objectFit="cover"
@@ -29,6 +30,9 @@ const Contact = ({ fields }) => {
         <div>
           <p>{fields.address}</p>
         </div>
+        {fields.links?.map((link) => {
+          return <AppLink key={link.sys.id} link={link} />;
+        })}
       </div>
       <style jsx>{`
         .container {
@@ -62,6 +66,18 @@ const Contact = ({ fields }) => {
         .h2,
         .h3 {
           margin-top: 0;
+        }
+      `}</style>
+      <style jsx global>{`
+        @media only screen and (max-width: 900px) {
+          .grid {
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 1fr 1fr;
+          }
+
+          .grid > div {
+            margin-bottom: ${getSpacing(8)};
+          }
         }
       `}</style>
     </section>
