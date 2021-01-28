@@ -4,36 +4,35 @@ import { getSpacing } from "../theme";
 const Contact = ({ fields }) => {
   return (
     <section id={fields.slug}>
-      <div className="grid">
-        {fields.person.map((person) => (
-          <div id={person.sys.id}>
-            <div className="image">
-              <Image
-                objectFit="fit"
-                src={`https:${person.fields.picture.fields.file.url}`}
-                alt={person.fields.picture.fields.title}
-                layout="fill"
-              />
+      <div className="container">
+        <h2>{fields.title}</h2>
+        <br />
+        <div className="grid">
+          {fields.person.map((person) => (
+            <div id={person.sys.id}>
+              <div className="image">
+                <Image
+                  objectFit="cover"
+                  src={`https:${person.fields.picture.fields.file.url}`}
+                  alt={person.fields.picture.fields.title}
+                  layout="fill"
+                />
+              </div>
+              <p>{person.fields.name}</p>
+              <p>{person.fields.phoneNumber}</p>
+              <p>{person.fields.email}</p>
             </div>
-            <p>{person.fields.name}</p>
-            <p>{person.fields.phoneNumber}</p>
-            <p>{person.fields.email}</p>
-          </div>
-        ))}
-      </div>
-      <br />
-      <br />
-      <br />
-      <div>
-        {fields.address.split(",").map((part) => (
-          <p>{part}</p>
-        ))}
+          ))}
+        </div>
+        <br />
+        <br />
+        <div>
+          <p>{fields.address}</p>
+        </div>
       </div>
       <style jsx>{`
-        section {
+        .container {
           max-width: 900px;
-          padding: ${getSpacing(0)};
-          padding-bottom: ${getSpacing(40)};
           margin: 0 auto;
         }
         .grid {

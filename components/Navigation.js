@@ -16,7 +16,9 @@ const Nagivation = ({ logo, links, alt_locale }) => {
             </Link>
           ))}
           <Link href="/" locale={alt_locale}>
-            <a className="locale">{alt_locale.toUpperCase()}</a>
+            <a className="locale">
+              {alt_locale === "en" ? "English" : "Français"}
+            </a>
           </Link>
         </div>
       </div>

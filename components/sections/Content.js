@@ -5,7 +5,6 @@ import theme from "../theme";
 import Link from "../Link";
 
 const Content = ({ fields }) => {
-  console.log(fields.image);
   return (
     <section id={fields.slug}>
       <div className="content">

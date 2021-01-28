@@ -22,6 +22,10 @@ const Text = ({ fields }) => {
         })}
       </div>
       <style jsx>{`
+        section {
+          background-color: ${theme.colors.light_primary};
+        }
+        
         .content {
           max-width: 900px;
           margin: 0 auto;
@@ -37,7 +41,7 @@ const Text = ({ fields }) => {
 
         :first-child {
           color: ${theme.colors.primary};
-          margin-bottom: 0
+          margin-bottom: 0;
         }
 
         .image {

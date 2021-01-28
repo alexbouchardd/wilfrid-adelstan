@@ -24,7 +24,9 @@ const AppLink = ({ link }) => {
           </svg>
           <style jsx>{`
             a {
-              font-size: ${getPixelToRem(24)};
+              display: block;
+              margin-bottom: ${getSpacing(2)};
+              font-size: ${getPixelToRem(20)};
               font-weight: bold;
               text-decoration: none;
               color: ${theme.colors.primary};
