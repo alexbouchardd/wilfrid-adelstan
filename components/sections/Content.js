@@ -82,12 +82,12 @@ const Content = ({ fields }) => {
       <style jsx>{`
         @media only screen and (max-width: 900px) {
           section {
-            display: block;
+            display: block !important;
           }
 
           .image {
             width: 100%;
-            height: 500px;
+            height: 400px;
             margin-top: ${getSpacing(12)};
             ${fields.image.fields.file.contentType === "image/svg+xml"
               ? `
