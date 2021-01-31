@@ -66,8 +66,7 @@ const Nagivation = ({ logo, links, alt_locale }) => {
         nav {
           z-index: 1000;
           position: sticky;
-          margin-top: -2px;
-          top: -2px;
+          top: 0;
           left: 0;
           right: 0;
           padding: ${getSpacing(9)};
