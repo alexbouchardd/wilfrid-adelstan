@@ -41,6 +41,10 @@ const Banner = ({ fields }) => {
 
         a {
           margin-left: 8px;
+          color: ${theme.colors.primary};
+        }
+
+        a:hover {
           color: ${theme.colors.white};
         }
 
