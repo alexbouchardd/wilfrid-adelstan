@@ -1,4 +1,5 @@
 import Image from "next/image";
+import getLinkEntryHref from "../../utils/getLinkEntryHref";
 import theme from "../theme";
 
 const Banner = ({ fields }) => {
@@ -6,7 +7,16 @@ const Banner = ({ fields }) => {
     <section>
       <h1>{fields.title}</h1>
       {fields.text && <p>{fields.text}</p>}
-      {fields.footnote && <p className="large">{fields.footnote}</p>}
+      {fields.footnote && (
+        <p className="large">
+          {fields.footnote}
+          {fields.footnoteLink && (
+            <a href={getLinkEntryHref(fields.footnoteLink)}>
+              {fields.footnoteLink.fields.label}
+            </a>
+          )}
+        </p>
+      )}
       <div className="filter" />
       <div className="image">
         <Image
@@ -27,6 +37,11 @@ const Banner = ({ fields }) => {
         p {
           color: ${theme.colors.white};
           max-width: 612px;
+        }
+
+        a {
+          margin-left: 8px;
+          color: ${theme.colors.white};
         }
 
         .filter {
